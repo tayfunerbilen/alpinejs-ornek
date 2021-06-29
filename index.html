@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer src="./bundle.min.js"></script>
+    <style>
+        .disabled {
+            opacity: .3;
+            pointer-events: none;
+        }
+        .done {
+            background-color: lime
+        }
+    </style>
+</head>
+<body>
+
+    <!-- <div x-data="counter" x-init="sayi = 1">
+        <button :class="decrementDisabled" @click="sayi--">Azalt</button>
+        <span x-text="sayi"></span>
+        <button :class="incrementDisabled" @click="sayi++">Artır</button>
+    </div> -->
+
+    <div x-data="counter" x-init="sayi = 5">
+        <button x-bind:disabled="decrementDisabled" @click="sayi--">Azalt</button>
+        <span x-text="sayi"></span>
+        <button x-bind:disabled="incrementDisabled" @click="sayi++">Artır</button>
+    </div> 
+
+    <!-- <div x-data="{open: false}">
+        <button @click="open = !open">Toggle</button>
+        <div x-show="open" @click.outside="open = false">gördün m?</div>
+    </div> -->
+
+    <!-- <div x-data="search">
+        <input x-model="search" />
+
+        <ul>
+            <template x-for="item in filteredItems" :key="item">
+                <li x-text="item"></li>
+            </template>
+        </ul>
+    </div> -->
+
+    <!-- <script>
+        document.addEventListener('alpine:init', () => {
+            
+        })
+    </script> -->
+
+
+    <div x-data="todolist">
+
+        <input type="text" x-model="newTodo" placeholder="Yeni todo ekle" />
+        <button @click="addTodo">Ekle</button>
+
+        <div x-show="loading" class="loading">
+            Todo listesi çekiliyor..
+        </div>
+
+        <ul x-show="!loading">
+            <template x-for="todo in todos" :key="todo.id">
+                <li @click="updateTodo(todo)" :class="{'done': todo.done === '1'}">
+                    <span x-text="todo.todo"></span>
+                    <button @click.stop="deleteTodo(todo)">Sil</button>
+                </li>
+            </template>
+        </ul>
+    </div>
+
+    
+</body>
+</html>

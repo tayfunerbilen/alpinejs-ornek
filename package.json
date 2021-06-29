@@ -1,0 +1,18 @@
+{
+  "name": "alpine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx esbuild app.js --bundle --outfile=bundle.min.js --minify --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "esbuild": "^0.12.12"
+  },
+  "dependencies": {
+    "alpinejs": "^3.2.1"
+  }
+}
